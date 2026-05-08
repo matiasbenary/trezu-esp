@@ -2,7 +2,7 @@
 
 ---
 
-## Post 1: r/Accounting / r/FinanceCareer — Control interno
+## Post 1 — Control interno
 
 **Título:** Cómo implementamos segregación de funciones en nuestra tesorería de activos digitales
 
@@ -28,7 +28,7 @@ Soporta más de 30 redes (Ethereum, NEAR, Solana, Bitcoin, entre otras). Compati
 
 ---
 
-## Post 2: r/Entrepreneur / r/startups — Operaciones
+## Post 2 — Operaciones
 
 **Título:** Le dimos estructura a nuestra tesorería cripto antes de que se convirtiera en un problema de gobierno
 
@@ -53,7 +53,7 @@ No es una herramienta solo para DAOs. Es una solución para cualquier organizaci
 
 ---
 
-## Post 3: r/Bitcoin / r/CryptoBusinesses — Pagos corporativos
+## Post 3 — Pagos corporativos
 
 **Título:** Procesamos $800K mensuales en cripto con aprobación formal y trazabilidad completa — así lo estructuramos
 
@@ -81,8 +81,27 @@ El resultado: cero incidentes por error de dirección desde que implementamos la
 
 ---
 
-## Tags sugeridos por post
+## Post 4 — Confidencialidad financiera
 
-- Post 1: `accounting` `internalcontrols` `crypto` `finance` `audit`
-- Post 2: `startup` `operations` `crypto` `treasury` `governance`
-- Post 3: `bitcoin` `crypto` `payments` `business` `treasury`
+**Título:** Cómo implementamos pagos cripto confidenciales sin sacrificar controles internos
+
+---
+
+Existe un requerimiento que escucho con frecuencia en equipos financieros que operan con activos digitales: necesitan gestión de tesorería multisig, pero no pueden —o no quieren— que su información financiera sea pública.
+
+Los casos más frecuentes que encontramos:
+- Pagos a auditores de seguridad antes de que el informe esté publicado
+- Contratos estratégicos donde exponer el monto podría afectar las negociaciones
+- Nómina y pagos a proveedores que, por política interna, no se divulgan públicamente
+
+La respuesta estándar en cripto —"todo es público en la blockchain"— no es aceptable para una organización que tiene estándares de confidencialidad financiera.
+
+**Trezu** incorpora una modalidad de **Tesorería Confidencial** que resuelve esto. Los balances, el contenido de las propuestas y el historial de pagos son visibles únicamente para los miembros autorizados del equipo. Nada se expone en la blockchain pública.
+
+La tecnología subyacente son los shards privados de NEAR Protocol: misma infraestructura que las tesorerías públicas, pero con privacidad financiera total. Los controles internos se mantienen intactos: separación de funciones, umbrales de aprobación configurables, trazabilidad interna y soporte para hardware wallets.
+
+Lo que sigue siendo público por diseño: la lista de miembros y el resultado de cada votación. Lo que queda privado: balances, montos, destinatarios e historial de transacciones.
+
+Para organizaciones que necesitan operar con privacidad financiera sin renunciar a los controles que exigen sus políticas internas, esta es la alternativa.
+
+👉 https://docs.trezu.org

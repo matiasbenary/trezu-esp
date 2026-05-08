@@ -145,6 +145,44 @@ Trezu
 
 ---
 
+## Escenario 5: Pago confidencial a auditor externo de seguridad
+
+### Situación
+RemitGlobal contrata una auditoría de seguridad sobre su infraestructura cripto a una firma externa por $80,000 USD. Por política de seguridad operativa, el equipo no puede revelar públicamente el alcance ni el monto hasta que el informe final sea entregado y las vulnerabilidades estén mitigadas.
+
+### Solución
+El equipo habilita una **tesorería confidencial** separada para este tipo de operaciones sensibles. La información financiera asociada —montos, destinatarios, historial de pagos— es visible únicamente para los miembros autorizados del equipo; ningún dato queda expuesto en la blockchain pública.
+
+### Flujo
+
+```
+Directora Financiera (Governance) — tesorería pública
+  └── Autoriza transferencia de $80,000 USDC al fondo de auditorías
+
+[Fondeo de la tesorería confidencial vía near.com]
+  └── Tesorero
+        ├── Deposita fondos en near.com
+        ├── Transfiere al shard privado (opción "To Confidential")
+        └── Envía los fondos a la cuenta near.com de la tesorería confidencial
+
+Analista de Pagos 1 (Requestor) — tesorería confidencial
+  └── Genera solicitud de pago: $80,000 USDC → cuenta near.com del auditor
+        └── Referencia: "Auditoría de seguridad - contrato #AUD-2025-047"
+
+Directora Financiera + Controller (Finance)
+  └── Autorizan el pago (2/3, dentro de las 24h configuradas)
+
+Auditor externo
+  └── Recibe los fondos en su cuenta near.com
+        └── Retira a su wallet externa cuando corresponde
+```
+
+**Resultado:** La operación se procesó con privacidad total. Ningún actor externo conoce el monto, el destinatario ni el calendario del pago. El equipo mantiene trazabilidad interna completa para sus registros contables.
+
+> ⚠️ El fondeo de una tesorería confidencial requiere operar a través de [near.com](https://near.com/) como intermediario, dado que los shards privados no pueden recibir transacciones públicas directas.
+
+---
+
 ## Resultados obtenidos
 
 | Indicador | Antes | Con Trezu |
@@ -170,9 +208,3 @@ Tesorería RemitGlobal
 ├── Plazo de votación: 24h operativo / 72h extraordinario
 └── Address Book: todos los proveedores y cuentas recurrentes pre-validadas
 ```
-
----
-
-## Tags
-
-#trezu #enterprise #tesorería #pagos-internacionales #control-interno #activos-digitales #multisig #auditoría

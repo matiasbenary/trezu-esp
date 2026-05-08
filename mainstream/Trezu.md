@@ -4,7 +4,7 @@
 
 **Trezu** es una plataforma **no-custodial de gestión de tesorería multi-chain** que permite a equipos administrar activos cripto de forma colaborativa mediante un sistema de billetera compartida y control colectivo.
 
-A diferencia de una billetera individual, en Trezu **ningún miembro puede actuar unilateralmente**: toda acción requiere consenso del equipo. Está diseñada para organizaciones que necesitan transparencia, trazabilidad y seguridad en el manejo de fondos digitales.
+A diferencia de una billetera individual, en Trezu **ningún miembro puede actuar unilateralmente**: toda acción requiere consenso del equipo. Está diseñada para organizaciones que necesitan transparencia, trazabilidad y seguridad en el manejo de fondos digitales, ya sea de forma pública o completamente privada.
 
 > "Una treasury es una billetera compartida que permite a equipos gestionar activos cripto en múltiples blockchains de forma segura." — Trezu Docs
 
@@ -29,6 +29,38 @@ Trezu resuelve el problema de **gestionar fondos cripto en equipo sin sacrificar
 | Swap de activos | Intercambiar tokens entre blockchains directamente desde la treasury |
 | Staking | Proponer staking de activos desde la treasury |
 | Gestión de miembros | Agregar, remover o modificar roles de miembros |
+
+---
+
+## Tipos de tesorería
+
+Trezu ofrece dos tipos de tesorería, diseñados para distintas necesidades respecto a la visibilidad de los datos financieros:
+
+### Tesorería Pública
+La tesorería estándar, construida sobre un contrato multisig en NEAR Protocol. Todos los balances, transacciones y propuestas son visibles públicamente en la blockchain.
+
+### Tesorería Confidencial 🔒
+Una tesorería donde **toda la información financiera es visible únicamente para los miembros del equipo**. Está desplegada en un **shard privado de NEAR**, lo que permite aprovechar la misma tecnología de seguridad de las tesorerías públicas sin exponer ningún dato al público.
+
+| Característica | Tesorería Pública | Tesorería Confidencial |
+|---|---|---|
+| Lista de miembros | 🌐 Visible para todos | 🌐 Visible para todos |
+| Votos en propuestas | 🌐 Visible para todos | 🌐 Visible para todos |
+| Balances de la tesorería | 🌐 Visible para todos | 🔒 Solo el equipo |
+| Contenido de propuestas | 🌐 Visible para todos | 🔒 Solo el equipo |
+| Historial de pagos | 🌐 Visible para todos | 🔒 Solo el equipo |
+| Cómo se manejan los fondos | 🌐 Via blockchains públicas | 🔒 Via shard privado de NEAR |
+
+> El tipo de tesorería se define al crearla y no puede cambiarse. Si se necesitan fondos públicos y privados, se recomienda crear dos tesorerías separadas.
+
+#### ¿Qué es un shard privado de NEAR?
+NEAR Protocol funciona como múltiples instancias en paralelo llamadas shards. Todos los shards son públicos por defecto. Sin embargo, NEAR permite crear shards privados que operan con la misma tecnología pero **sin exponer ningún dato al público**. Las tesorerías confidenciales se despliegan en uno de estos shards privados.
+
+#### Fondeo de tesorerías confidenciales
+Como los shards privados no pueden recibir transacciones de blockchains públicas directamente, el fondeo de una tesorería confidencial requiere pasar por [near.com](https://near.com/): depositar fondos en near.com, moverlos al shard privado, y luego enviarlos a la cuenta de la tesorería.
+
+#### Pagos confidenciales
+Los pagos ejecutados desde una tesorería confidencial son privados. El destinatario recibe los fondos en una cuenta de near.com y necesita ingresar a esa plataforma para acceder y retirarlos a una wallet externa.
 
 ---
 
@@ -108,6 +140,9 @@ Se puede establecer cuánto tiempo permanece abierta una votación antes de expi
 ### Mínimo privilegio
 Los roles están diseñados para que nadie tenga más acceso del necesario. Governance no puede mover fondos; Finance no puede cambiar la configuración.
 
+### Tesorerías Confidenciales
+Para equipos que necesitan privacidad financiera, Trezu ofrece tesorerías desplegadas en un shard privado de NEAR. Los balances, propuestas y transacciones son invisibles para el público. Ver sección [Tipos de tesorería](#tipos-de-tesoría).
+
 ### Compatibilidad con hardware wallets
 Soporte para **Ledger** como capa adicional de seguridad para firmantes críticos.
 
@@ -139,9 +174,5 @@ Trezu incluye una **libreta de direcciones** donde se pueden guardar wallets fre
 
 - Documentación oficial: https://docs.trezu.org
 - Caso de uso ejemplo: [[Trezu - Caso de Uso DAO]]
-
----
-
-## Tags
-
-#cripto #tesorería #multisig #web3 #dao #non-custodial #trezu #seguridad #gobernanza
+- Guía: fondeo de tesorería confidencial → via near.com
+- Guía: recibir y retirar pagos confidenciales → via near.com

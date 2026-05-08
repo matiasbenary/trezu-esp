@@ -153,6 +153,61 @@ docs.trezu.org
 
 ---
 
+## Tweets — Tesorerías Confidenciales
+
+**Tweet 6 — Feature reveal confidencial**
+```
+Nuevo en Trezu: Tesorerías Confidenciales 🔒
+
+Misma seguridad multisig que conocés.
+Mismos roles separados.
+Pero los balances, pagos y propuestas son visibles solo para tu equipo.
+
+Para equipos que necesitan privacidad financiera sin sacrificar descentralización.
+
+docs.trezu.org
+```
+
+---
+
+**Tweet 7 — Caso de uso confidencial**
+```
+¿Cuándo necesitás una tesorería confidencial?
+
+→ Auditorías de seguridad pre-anuncio
+→ Negociaciones que no querés exponer
+→ Pagos estratégicos antes de un lanzamiento
+→ Cualquier operación donde el monto o destinatario es sensible
+
+Trezu ahora lo soporta. 🔒
+```
+
+---
+
+**Tweet 8 — Técnico confidencial**
+```
+Las tesorerías confidenciales de Trezu funcionan sobre shards privados de NEAR.
+
+Misma tecnología que los shards públicos.
+Sin exposición de datos al público.
+
+Los fondos se depositan via near.com y los pagos se ejecutan internamente en el shard privado.
+```
+
+---
+
+**Tweet 9 — Post corto confidencial**
+```
+Dos tipos de tesorería en Trezu:
+
+🌐 Pública → transparencia total on-chain
+🔒 Confidencial → solo el equipo ve los datos
+
+Vos elegís según tus necesidades.
+```
+
+---
+
 ## Posts cortos — variaciones para rotación
 
 ```
@@ -199,9 +254,3 @@ donde las mismas 3 personas proponen Y aprueban todo.
 La separación de roles importa.
 → docs.trezu.org
 ```
-
----
-
-## Tags sugeridos
-
-`#Web3` `#DAO` `#DeFi` `#Cripto` `#Multisig` `#Tesorería` `#NEAR` `#Ethereum` `#Solana`

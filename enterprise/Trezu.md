@@ -94,6 +94,38 @@ Soporte para dispositivos **Ledger**, recomendado para los roles de mayor respon
 
 ---
 
+## Tipos de tesorería
+
+Trezu ofrece dos modalidades de tesorería, diseñadas para distintos requerimientos de confidencialidad financiera:
+
+### Tesorería Pública
+Modalidad estándar, construida sobre un contrato multisig en NEAR Protocol. Los balances, transacciones y propuestas son públicamente verificables en la blockchain.
+
+### Tesorería Confidencial 🔒
+Modalidad donde **toda la información financiera es accesible exclusivamente para los miembros autorizados del equipo**. Se despliega en un **shard privado de NEAR Protocol**, lo que permite mantener los mismos controles de seguridad y gobernanza de las tesorerías públicas sin exponer ningún dato operativo.
+
+| Característica | Tesorería Pública | Tesorería Confidencial |
+|---|---|---|
+| Lista de miembros | 🌐 Pública | 🌐 Pública |
+| Votos en propuestas | 🌐 Público | 🌐 Público |
+| Balances de la tesorería | 🌐 Público | 🔒 Solo el equipo |
+| Contenido de propuestas | 🌐 Público | 🔒 Solo el equipo |
+| Historial de pagos | 🌐 Público | 🔒 Solo el equipo |
+| Infraestructura | 🌐 Blockchains públicas | 🔒 Shard privado de NEAR |
+
+> La modalidad se define al momento de creación y no puede modificarse. Para organizaciones que requieran ambas modalidades, se recomienda operar dos tesorerías independientes.
+
+#### Infraestructura: shards privados de NEAR Protocol
+NEAR Protocol opera como múltiples instancias paralelas denominadas shards. Por defecto, todos los shards son públicos. NEAR permite desplegar shards privados que operan con la misma tecnología de base, pero **sin exponer ningún dato al público general**. Las tesorerías confidenciales de Trezu utilizan esta infraestructura.
+
+#### Fondeo de tesorerías confidenciales
+Los shards privados no pueden recibir transacciones directamente desde blockchains públicas. El proceso de fondeo requiere operar a través de [near.com](https://near.com/): depositar fondos en la plataforma, transferirlos al shard privado, y enviarlos a la cuenta de la tesorería confidencial.
+
+#### Pagos desde tesorerías confidenciales
+Los pagos ejecutados desde una tesorería confidencial son completamente privados. El destinatario recibe los fondos en una cuenta de near.com, desde donde puede retirarlos a su wallet externa.
+
+---
+
 ## Redes soportadas
 
 Trezu opera sobre **más de 30 redes blockchain**, entre ellas:
@@ -106,9 +138,3 @@ Trezu opera sobre **más de 30 redes blockchain**, entre ellas:
 
 - Documentación técnica: https://docs.trezu.org
 - Caso de uso: [[Trezu Enterprise - Caso de Uso]]
-
----
-
-## Tags
-
-#tesorería #activos-digitales #control-interno #multisig #web3 #enterprise #trezu #seguridad #gobernanza

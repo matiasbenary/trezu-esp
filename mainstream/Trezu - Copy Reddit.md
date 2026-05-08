@@ -2,7 +2,7 @@
 
 ---
 
-## Post 1: r/web3 / r/CryptoCurrency — Presentación general
+## Post 1 — Presentación general
 
 **Título:** Construimos una tesorería multisig cross-chain para equipos
 
@@ -32,7 +32,7 @@ Si estás manejando una DAO, una startup Web3, o cualquier equipo con fondos cri
 
 ---
 
-## Post 2: r/ethereum / r/nearprotocol — Técnico
+## Post 2 — Técnico
 
 **Título:** Construimos una tesorería multisig con roles y soporte cross-chain — así funciona el modelo de permisos
 
@@ -66,7 +66,7 @@ Estamos en fase de documentación y recolectando feedback de DAOs y equipos Web3
 
 ---
 
-## Post 3: r/DAO — Caso de uso
+## Post 3 - Caso de uso
 
 **Título:** Cómo estructurar la tesorería de una DAO con separación de roles real (usando Trezu)
 
@@ -100,7 +100,7 @@ Lo estamos construyendo con [Trezu](https://docs.trezu.org). Todavía temprano, 
 
 ---
 
-## Post 4: r/Cripto — Comunidad hispanohablante
+## Post 4 - Comunidad hispanohablante
 
 **Título:** Cómo nuestro equipo dejó de depender de una sola persona para mover los fondos cripto
 
@@ -126,9 +126,48 @@ Si están manejando fondos en equipo y todavía lo hacen con una sola wallet o u
 
 ---
 
-## Tags sugeridos por post
+---
 
-- Post 1: `web3` `cripto` `multisig` `dao` `tesorería`
-- Post 2: `ethereum` `near` `defi` `seguridad` `multisig`
-- Post 3: `dao` `gobernanza` `tesorería` `web3` `cripto`
-- Post 4: `cripto` `bitcoin` `ethereum` `web3` `finanzas`
+## Post 5 — Tesorerías Confidenciales
+
+**Título:** Cómo Trezu implementa tesorerías cripto confidenciales usando shards privados de NEAR
+
+---
+
+Cuando construimos Trezu, la primera versión era completamente pública: todos los balances, pagos y propuestas visibles en la blockchain. Para muchos equipos eso está bien, e incluso es deseable.
+
+Pero nos fue llegando el mismo pedido de distintos equipos: *necesitamos gestión de tesorería multisig, pero no queremos que nuestras finanzas sean públicas*.
+
+Casos concretos:
+- Equipos que pagan a auditores de seguridad y no quieren revelar el alcance antes del informe final
+- DAOs que negocian contratos estratégicos donde el monto podría influenciar las negociaciones
+- Empresas Web3 que simplemente no quieren exponer su payroll al mundo
+
+**La solución: Tesorerías Confidenciales**
+
+Aprovechamos los shards privados de NEAR Protocol. En NEAR, la blockchain está dividida en múltiples shards (instancias paralelas). Todos son públicos por defecto, pero NEAR permite crear shards privados que operan con la misma tecnología pero sin exponer ningún dato.
+
+Las tesorerías confidenciales de Trezu se despliegan en uno de esos shards privados. Resultado: todo el modelo de seguridad multisig que ya teníamos — control colectivo, separación de roles, votación configurable — pero con privacidad financiera total.
+
+**Lo que sigue siendo público (por diseño):**
+- La lista de miembros del equipo
+- Que una propuesta fue creada y cómo votó cada miembro
+
+**Lo que queda privado:**
+- Los balances de la tesorería
+- El contenido de las propuestas (montos, destinatarios, tokens)
+- El historial de pagos y swaps
+
+**La parte no obvia: el fondeo**
+
+Este fue el mayor desafío de UX. Los shards privados no pueden recibir transacciones públicas directamente. El flujo para fondear una tesorería confidencial es:
+
+1. Ir a [near.com](https://near.com/) y depositar fondos
+2. Mover los fondos al shard privado desde near.com (opción "To Confidential")
+3. Desde near.com, enviar los fondos a la cuenta de la tesorería confidencial (es una cuenta near.com)
+
+Los pagos que salen de la tesorería también son privados y los destinatarios reciben en una cuenta near.com, desde donde pueden retirar a cualquier wallet externa.
+
+No es el flujo más simple, pero es el único que garantiza privacidad real. Documentamos el proceso completo en [docs.trezu.org](https://docs.trezu.org).
+
+Comentarios y preguntas técnicas bienvenidas.

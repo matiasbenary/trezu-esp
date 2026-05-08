@@ -196,6 +196,54 @@ Cualquier empresa que opere con activos digitales necesita segregación de funci
 
 ---
 
-## Tags sugeridos
+## Tweets — Tesorerías Confidenciales
 
-`#Finanzas` `#ControlInterno` `#Tesorería` `#ActivosDigitales` `#Web3` `#Cripto` `#Compliance` `#Empresa` `#NEAR` `#Ethereum`
+**Tweet 7 — Introducción confidencial**
+```
+La blockchain pública no es el único requisito para operar con activos digitales.
+
+Trezu ahora ofrece Tesorerías Confidenciales 🔒:
+mismos controles internos, misma segregación de funciones,
+pero los balances y pagos son visibles solo para tu equipo.
+
+docs.trezu.org
+```
+
+---
+
+**Tweet 8 — Casos de uso confidencial**
+```
+¿Cuándo necesitás una tesorería confidencial?
+
+→ Pagos a auditores de seguridad antes del informe final
+→ Contratos donde exponer el monto afecta las negociaciones
+→ Nómina en cripto que no debe ser pública
+→ Cualquier operación financiera sensible
+
+Trezu lo soporta. Sin renunciar a los controles internos. 🔒
+```
+
+---
+
+**Tweet 9 — Técnico confidencial**
+```
+Las Tesorerías Confidenciales de Trezu operan sobre shards privados de NEAR Protocol.
+
+Misma infraestructura de seguridad.
+Sin exposición de datos al público.
+
+Segregación de funciones, umbrales de aprobación y trazabilidad interna: intactos.
+```
+
+---
+
+**Tweet 10 — Diferenciación pública/confidencial**
+```
+Dos modalidades de tesorería en Trezu:
+
+🌐 Pública → transparencia total on-chain
+🔒 Confidencial → solo el equipo accede a la información financiera
+
+Mismos controles de gobierno. Distinto nivel de exposición.
+Vos definís lo que tu organización necesita.
+```

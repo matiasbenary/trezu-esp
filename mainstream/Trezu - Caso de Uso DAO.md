@@ -127,6 +127,44 @@ Sistema
 
 ---
 
+## Escenario 5: Pagos confidenciales a auditores de seguridad
+
+### Situación
+NovaDeFi DAO contrata una auditoría de seguridad a una firma externa. El equipo no quiere exponer públicamente el monto ni la identidad del auditor hasta que la auditoría esté completa (para evitar que actores maliciosos anticipen vulnerabilidades en revisión).
+
+### Solución
+El equipo crea una **tesorería confidencial** separada para este tipo de pagos sensibles. Toda la información financiera es visible únicamente para los miembros del equipo; nada es público on-chain.
+
+### Flujo
+
+```
+Alice (Governance) — tesorería pública
+  └── Aprueba transferir 30,000 USDC al fondo de auditorías
+
+[Fondeo de la tesorería confidencial vía near.com]
+  └── Carol navega a near.com
+        ├── Deposita 30,000 USDC desde su wallet
+        ├── Mueve los fondos al shard privado (To Confidential)
+        └── Envía los fondos a la cuenta near.com de la tesorería confidencial
+
+Dave (Requestor) — tesorería confidencial
+  └── Crea propuesta de pago: 30,000 USDC → cuenta near.com del auditor
+        └── Comentario: "Auditoría de seguridad - contrato #AUD-2025-003"
+
+Carol + Alice (Finance)
+  └── Aprueban el pago confidencial (2/2 en 12 horas)
+
+Auditor externo
+  └── Recibe los fondos en su cuenta near.com
+        └── Retira a su wallet externa desde near.com cuando corresponda
+```
+
+**Resultado:** El pago se procesó completamente en privado. Ningún actor externo conoce el monto, el destinatario ni la fecha de ejecución. El equipo mantiene trazabilidad interna completa.
+
+> ⚠️ Para fondear una tesorería confidencial se debe usar [near.com](https://near.com/) como intermediario, ya que los shards privados no pueden recibir transacciones públicas directas.
+
+---
+
 ## Beneficios observados vs. situación anterior
 
 | Aspecto | Antes (multisig informal) | Con Trezu |
@@ -137,17 +175,24 @@ Sistema
 | Tiempo de pago | 2-3 días (coordinación manual) | ~6-48 horas (votación asíncrona) |
 | Onboarding de nuevos aprobadores | Complejo y riesgoso | Controlado por Governance |
 | Auditoría | Inexistente | Registro completo on-chain |
+| Privacidad financiera | Inexistente | Opcional vía tesorería confidencial |
 
 ---
 
 ## Configuración recomendada para DAOs similares
 
 ```
-Treasury NovaDeFi
+Treasury NovaDeFi (Pública — operaciones diarias)
 ├── Governance: 2-3 wallets de hardware (Ledger)
 ├── Finance: 3-5 miembros, umbral 2/3 o 3/5
 ├── Requestors: todos los contributors con permisos operativos
 ├── Voting duration: 24-48h (equilibrio entre agilidad y seguridad)
 └── Address Book: todas las wallets recurrentes pre-registradas
+
+Treasury NovaDeFi Confidential (para pagos sensibles)
+├── Mismos miembros Governance y Finance que la tesorería pública
+├── Fondeo exclusivamente via near.com (shard privado)
+├── Usar para: auditorías, acuerdos pre-anuncio, pagos estratégicos
+└── Balances y transacciones visibles solo para el equipo
 ```
 
